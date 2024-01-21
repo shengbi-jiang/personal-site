@@ -1,0 +1,7 @@
+.container {
+  --horizontal-padding: 0.5rem;
+
+  max-width: calc(48rem + var(--horizontal-padding) * 2);
+  padding: 0 var(--horizontal-padding);
+  margin: 0 auto;
+}

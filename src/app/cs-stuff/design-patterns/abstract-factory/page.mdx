@@ -1,0 +1,9 @@
+import Component from './Component';
+import CodeBlock from '@/components/CodeBlock/CodeBlock';
+import rawCode from '!!raw-loader!./code.ts';
+
+# Title
+
+<Component />
+
+<CodeBlock source={rawCode} lang="ts" showLineNumbers={true} />

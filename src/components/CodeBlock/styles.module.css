@@ -1,0 +1,58 @@
+.contianer {
+  font-size: 16px;
+}
+
+.header {
+  background-color: gray;
+  border-radius: 8px 8px 0 0;
+  padding: 4px 8px;
+}
+
+.codeblock {
+  background-color: #282c34;
+  padding: 4px 0;
+  border: 2px solid gray;
+  overflow-x: auto;
+}
+
+.codeblock code {
+  counter-reset: line;
+
+  cursor: text;
+}
+
+.codeblock code > [data-line] {
+  padding-right: 8px;
+}
+
+.codeblock code > [data-line]:hover {
+  background-color: #353b45;
+}
+
+.codeblock code > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+
+  display: inline-block;
+  position: sticky;
+  left: 0;
+  width: 1.5rem;
+  background: #282c34;
+  border-right: 1px solid white;
+  padding-right: 8px;
+  margin-right: 0.5rem;
+  text-align: right;
+  color: gray;
+}
+
+.codeblock code > [data-line]:hover::before {
+  background-color: #353b45;
+}
+
+.codeblock code[data-line-numbers-max-digits='2'] > [data-line]::before {
+  width: 2.5rem;
+}
+
+.codeblock code[data-line-numbers-max-digits='3's] > [data-line]::before {
+  width: 3.5rem;
+}

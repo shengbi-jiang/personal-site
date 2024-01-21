@@ -3,8 +3,8 @@ import { notoSansTC } from './fonts';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: "Alan Jiang' Blog",
-  description: "Alan Jiang' Blog",
+  title: "Alan Jiang's Site",
+  description: "Alan Jiang's Site",
 };
 
 export default function RootLayout({
