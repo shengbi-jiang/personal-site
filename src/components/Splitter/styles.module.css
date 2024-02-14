@@ -1,0 +1,82 @@
+.split {
+  display: flex;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  margin: 0 0.5rem;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.split .left,
+.split .right {
+  padding: 0.5rem;
+}
+
+.split .left {
+  width: 100%;
+  padding-bottom: 0.5rem;
+  flex-grow: 0;
+}
+
+.split .right {
+  display: flex;
+  width: 100%;
+  height: 80vh;
+  min-height: 0;
+  flex-grow: 0;
+  flex-direction: column;
+}
+
+.splittingLineArea {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .split {
+    --splitting-line-width: 2px;
+    --splitting-area-padding: 4px;
+    --splitting-area-width: calc(
+      var(--splitting-line-width) + var(--splitting-area-padding) * 2
+    );
+    --splitting-point: 50%;
+
+    height: 80vh;
+    min-height: 400px;
+    flex-direction: row;
+  }
+
+  .split .left {
+    width: calc(var(--splitting-point, 50%) - var(--splitting-area-width) / 2);
+    padding-right: 0.5rem;
+    padding-bottom: 0;
+    flex-shrink: 0;
+  }
+
+  .split .right {
+    width: calc(
+      100% - var(--splitting-point, 50%) - var(--splitting-area-width) / 2
+    );
+    height: 100%;
+  }
+
+  .splittingLineArea {
+    display: flex;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0 var(--splitting-area-padding);
+    cursor: col-resize;
+    justify-content: center;
+  }
+
+  .splittingLineArea:hover {
+    background: none;
+  }
+
+  .splittingLineArea > .splittingLine {
+    background: gray;
+    height: 100%;
+    width: var(--splitting-line-width);
+  }
+}

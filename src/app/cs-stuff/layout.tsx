@@ -3,9 +3,9 @@ import Navbar from '@/components/Navbar/Navbar';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <main>
+    <main style={{ paddingBottom: '2rem', minHeight: '100vh' }}>
       <Navbar />
-      {children}
+      <article style={{ marginTop: '0.5rem' }}>{children}</article>
     </main>
   );
 }

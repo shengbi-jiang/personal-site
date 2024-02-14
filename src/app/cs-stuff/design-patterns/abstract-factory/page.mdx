@@ -1,9 +1,30 @@
+import Container from '@/components/Container/Container';
+import CodeBlockTabs from '@/components/CodeBlockTabs/CodeBlockTabs';
+import Splitter from '@/components/Splitter/Splitter';
 import Component from './Component';
-import CodeBlock from '@/components/CodeBlock/CodeBlock';
-import rawCode from '!!raw-loader!./code.ts';
 
-# Title
+import elementFactoryCode from '!!raw-loader!./element-factory.ts';
+import plainElementFactoryCode from '!!raw-loader!./plain-element-factory.ts';
+import designedElementFactoryCode from '!!raw-loader!./designed-element-factory.ts';
+import todoListContextCode from '!!raw-loader!./todo-list-context.ts';
+import mainCode from '!!raw-loader!./main.ts';
 
-<Component />
+<Container as="section">
+  # Abstract Factory
+  Here's some example.
+</Container>
 
-<CodeBlock source={rawCode} lang="ts" showLineNumbers={true} />
+<Splitter
+  left={<Component style={{ width: '100%' }} />}
+  right={
+    <CodeBlockTabs
+      sources={[
+        { fileName: 'main.ts', source: mainCode, lang: 'ts' },
+        { fileName: 'todo-list-context.ts',  source: todoListContextCode, lang: 'ts' },
+        { fileName: 'element-factory.ts', source: elementFactoryCode, lang: 'ts' },
+        { fileName: 'plain-element-factory.ts', source: plainElementFactoryCode, lang: 'ts' },
+        { fileName: 'designed-element-factory.ts',  source: designedElementFactoryCode, lang: 'ts', },
+      ]}
+    />
+  }
+/>

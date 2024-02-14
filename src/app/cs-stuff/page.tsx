@@ -29,7 +29,7 @@ function ItemComponent({ item }: { item: Item }) {
 export default async function Page() {
   const root = await getPostHierarchy();
   return (
-    <Container as="section" style={{ marginTop: '0.5rem' }}>
+    <Container as="section">
       <p>Posts and gadgets related to computer science stuff placed here!</p>
       <nav className={styles.hierarchy}>
         <ul>
