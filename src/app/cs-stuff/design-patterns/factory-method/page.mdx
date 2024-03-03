@@ -1,0 +1,32 @@
+import Container from '@/components/Container/Container';
+import CodeBlockTabs from '@/components/CodeBlockTabs/CodeBlockTabs';
+import Splitter from '@/components/Splitter/Splitter';
+import Example from './example/Example';
+import Diagram from './Diagram';
+
+import contentCode from '!!raw-loader!./example/content.ts';
+import articleContentCode from '!!raw-loader!./example/article-content.ts';
+import imageContentCode from '!!raw-loader!./example/image-content.ts';
+import videoContentCode from '!!raw-loader!./example/video-content.ts';
+import mainCode from '!!raw-loader!./example/main.ts';
+
+<Container as="section">
+  # Factory Method
+  Let's say we want to create web content with a title and a URL. The page should use the URL to fetch the source data for its content. The content could be some text, an image, or a video. It should be easy for developers to create new types of content and swap them. We can use Factory Method pattern to achieve it. The class `Content` defines the outline of the content, and its child classes implement types of content. For example, `ArticleContent` fetches an article content with the URL, and `ImageContent` uses its image component and the URL to show the picture.
+  <Diagram />
+</Container>
+
+<Splitter
+  left={<Example style={{ width: '100%' }} />}
+  right={
+    <CodeBlockTabs
+      sources={[
+        { fileName: 'main.ts', source: mainCode, lang: 'ts' },
+        { fileName: 'content.ts',  source: contentCode, lang: 'ts' },
+        { fileName: 'article-content.ts', source: articleContentCode, lang: 'ts' },
+        { fileName: 'image-content.ts', source: imageContentCode, lang: 'ts' },
+        { fileName: 'video-content.ts',  source: videoContentCode, lang: 'ts', },
+      ]}
+    />
+  }
+/>

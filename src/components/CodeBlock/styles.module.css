@@ -22,7 +22,7 @@
 
 .codeblock code {
   counter-reset: line;
-
+  background: transparent;
   cursor: text;
 }
 
