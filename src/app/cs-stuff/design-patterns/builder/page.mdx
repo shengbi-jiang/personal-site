@@ -1,0 +1,32 @@
+import Container from '@/components/Container/Container';
+import CodeBlockTabs from '@/components/CodeBlockTabs/CodeBlockTabs';
+import Splitter from '@/components/Splitter/Splitter';
+import Example from './example/Example';
+import Diagram from './Diagram';
+
+import directorCode from '!!raw-loader!./example/director.ts';
+import graphicsBuilderCode from '!!raw-loader!./example/graphics-builder.ts';
+import canvasGraphicsBuilderCode from '!!raw-loader!./example/canvas-graphics-builder.ts';
+import vectorGraphicsBuilderCode from '!!raw-loader!./example/vector-graphics-builder.ts';
+import mainCode from '!!raw-loader!./example/main.ts';
+
+<Container as="section">
+  # Builder Pattern
+  SVG and canvas are common approaches to building graphics on web. Consider an interface `GraphicsBuilder` that defines several methods for drawing simple shapes. We create the `CanavasGraphicsBuilder` and `VectorGraphicsBuilder` classes to implement the interface. The former uses the HTML element `canvas` to draw shapes in pixel images, whereas the latter uses the element `svg` and its element family to create vector graphics. The class `Director` accepts a `GraphicsBuilder` instance to draw an image. It's interesting that the director doesn't know how the graphics and shapes are actually implemented (pixel v.s. vector images). It only focuses on creating shapes with the interface. This makes swapping different builders (concrete implementation) easier and thus achieves greater flexibility.
+  <Diagram />
+</Container>
+
+<Splitter
+  left={<Example style={{ width: '100%' }} />}
+  right={
+    <CodeBlockTabs
+      sources={[
+        { fileName: 'main.ts', source: mainCode, lang: 'ts' },
+        { fileName: 'director.ts',  source: directorCode, lang: 'ts' },
+        { fileName: 'graphics-builder.ts', source: graphicsBuilderCode, lang: 'ts' },
+        { fileName: 'canvas-graphics-builder.ts', source: canvasGraphicsBuilderCode, lang: 'ts' },
+        { fileName: 'vector-graphics-builder.ts',  source: vectorGraphicsBuilderCode, lang: 'ts', },
+      ]}
+    />
+  }
+/>

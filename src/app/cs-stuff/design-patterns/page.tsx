@@ -2,6 +2,7 @@ import Container from '@/components/Container/Container';
 import SubjectItem from '../components/SubjectItem/SubjectItem';
 import AbstractFactoryIcon from './abstract-factory/topic-icon.svg';
 import FactoryMethodIcon from './factory-method/topic-icon.svg';
+import BuilderIcon from './builder/topic-icon.svg';
 
 export default function Page() {
   return (
@@ -20,6 +21,12 @@ export default function Page() {
           href="/cs-stuff/design-patterns/factory-method"
           imageSrc={FactoryMethodIcon}
           imageAlt="Factory Mathod Pattern"
+        />
+        <SubjectItem
+          name="Builder"
+          href="/cs-stuff/design-patterns/builder"
+          imageSrc={BuilderIcon}
+          imageAlt="Builder Pattern"
         />
       </section>
       <section>
