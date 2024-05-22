@@ -1,0 +1,35 @@
+import Container from '@/components/Container/Container';
+import CodeBlockTabs from '@/components/CodeBlockTabs/CodeBlockTabs';
+import Splitter from '@/components/Splitter/Splitter';
+import Example from './example/Example';
+
+import typesCode from '!!raw-loader!./example/types.ts';
+import clonableCode from '!!raw-loader!./example/clonable.ts';
+import documentCode from '!!raw-loader!./example/document.ts';
+import documentEditorCode from '!!raw-loader!./example/document-editor.ts';
+import documentItemCode from '!!raw-loader!./example/document-item.ts';
+import documentListCode from '!!raw-loader!./example/document-list.ts';
+import documentManagerCode from '!!raw-loader!./example/document-manager.ts';
+import mainCode from '!!raw-loader!./example/main.ts';
+
+<Container as="section">
+  # Prototype Pattern
+</Container>
+
+<Splitter
+  left={<Example />}
+  right={
+    <CodeBlockTabs
+      sources={[
+        { fileName: 'main.ts', source: mainCode, lang: 'ts' },
+        { fileName: 'clonable.ts',  source: clonableCode, lang: 'ts' },
+        { fileName: 'document-manager.ts',  source: documentManagerCode, lang: 'ts', },
+        { fileName: 'document-editor.ts', source: documentEditorCode, lang: 'ts' },
+        { fileName: 'document-list.ts',  source: documentListCode, lang: 'ts', },
+        { fileName: 'document-item.ts',  source: documentItemCode, lang: 'ts', },
+        { fileName: 'document.ts', source: documentCode, lang: 'ts' },
+        { fileName: 'types.ts',  source: typesCode, lang: 'ts', },
+      ]}
+    />
+  }
+/>
